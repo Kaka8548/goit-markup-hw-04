@@ -6,13 +6,17 @@
   --card-border: 1px solid #eeeeee;
   --main-text-color: #212121;
   --secondary-text-color: #757575;
+  --team-social-media: #afb1b8;
   --white-color: #ffffff;
   --black-color: #000000;
   --transparent-grey-color: rgba(255, 255, 255, 0.6);
+  --transparent-grey-second-color: rgba(255, 255, 255, 0.1);
   --img-card-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14),
     0px 2px 1px rgba(0, 0, 0, 0.2);
   --btn-shadow: 0px 3px 1px rgba(0, 0, 0, 0.1), 0px 1px 2px rgba(0, 0, 0, 0.08),
     0px 2px 2px rgba(0, 0, 0, 0.12);
+  --pfoject-card-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12), 0px 4px 4px rgba(0, 0, 0, 0.06),
+    1px 4px 6px rgba(0, 0, 0, 0.16);
 }
 
 /* загальні налаштування */
@@ -114,12 +118,23 @@ img {
 
 .nav-links .link,
 .address-links .link {
-  display: inline-block;
+  display: flex;
+  align-items: center;
   padding-top: 32px;
   padding-bottom: 32px;
   font-weight: 500;
   line-height: 1.2;
   letter-spacing: 0.02em;
+}
+
+.link-icon,
+.social-icon,
+.client-icon {
+  fill: currentColor;
+}
+
+.link-icon {
+  margin-right: 10px;
 }
 
 .address-links .link {
@@ -143,6 +158,9 @@ img {
 .banner {
   padding-top: 200px;
   padding-bottom: 200px;
+  background: linear-gradient(rgba(47, 48, 58, 0.4), rgba(47, 48, 58, 0.4)),
+    url('../images/banner.jpg');
+  background-size: cover;
   background-color: var(--box-color);
   text-align: center;
 }
@@ -181,16 +199,26 @@ img {
 
 .features .list,
 .work .list,
-.team .list {
+.team .list,
+.contacts .social-media.list {
   display: flex;
 }
 
 .features .feature {
-  width: 270px;
+  width: calc((100%-90px) / 4);
 }
 
 .feature + .feature {
   margin-left: 30px;
+}
+
+.features .feature-icon {
+  padding-top: 25px;
+  padding-bottom: 25px;
+  margin-bottom: 30px;
+  border-radius: 4px;
+  text-align: center;
+  background-color: var(--secondary-color);
 }
 
 .features .feature-title {
@@ -208,13 +236,15 @@ img {
 
 .work,
 .team,
-.portfolio {
+.portfolio,
+.clients {
   padding-top: 94px;
   padding-bottom: 94px;
 }
 
 .work .heading,
-.team .heading {
+.team .heading,
+.clients .heading {
   margin: 0;
   margin-bottom: 50px;
   text-align: center;
@@ -265,7 +295,67 @@ img {
 }
 
 .team .prof {
+  margin-bottom: 16px;
   color: var(--secondary-text-color);
+}
+
+.team-social-media {
+  padding-left: 32px;
+  padding-right: 32px;
+}
+
+.team-social-media-item {
+  width: calc((100%-94px) / 4);
+}
+
+.team-social-media-item + .team-social-media-item {
+  margin-left: 10px;
+}
+
+.team-member .link {
+  color: var(--team-social-media);
+}
+
+.team-member .link,
+.join .link {
+  width: 44px;
+  height: 44px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+}
+
+.team-member .link:hover,
+.team-member .link:focus {
+  color: var(--white-color);
+  background-color: var(--main-color);
+}
+
+/* Постійні клієнти */
+
+.clients-list {
+  display: flex;
+}
+
+.clients .link {
+  display: inline-block;
+  padding: 16px 32px;
+  text-align: center;
+  color: var(--team-social-media);
+  border: 1px solid var(--team-social-media);
+  border-radius: 4px;
+}
+
+.clients .link:hover,
+.clients .link:focus {
+  color: var(--main-color);
+  border-color: var(--main-color);
+}
+
+.client + .client {
+  margin-left: 30px;
+  width: calc((100% - 150px) / 6);
 }
 
 /* футер */
@@ -309,6 +399,38 @@ img {
 .contacts .number:hover,
 .contacts .number:focus {
   color: var(--main-color);
+}
+
+.contacts > .container {
+  display: flex;
+  align-items: baseline;
+}
+
+.contacts .left-col {
+  width: 231px;
+  margin-right: 70px;
+}
+
+.social-media-item + .social-media-item {
+  margin-left: 10px;
+}
+
+.join-heading {
+  margin-bottom: 20px;
+  color: var(--white-color);
+  text-transform: uppercase;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.join .link {
+  color: var(--white-color);
+  background-color: var(--transparent-grey-second-color);
+}
+
+.join .link:hover,
+.join .link:focus {
+  background-color: var(--main-color);
 }
 
 /* ПОРТФОЛІО */
@@ -357,6 +479,15 @@ img {
 
 .projects .project {
   width: calc((100% - 60px) / 3);
+}
+
+.projects .link {
+  display: block;
+}
+
+.projects .link:hover,
+.projects .link:focus {
+  box-shadow: var(--pfoject-card-shadow);
 }
 
 .project:not(:nth-of-type(3n)) {
