@@ -435,6 +435,8 @@ img {
 }
 
 .join .link {
+  width: 44px;
+  height: 44px;
   color: var(--white-color);
   background-color: var(--transparent-grey-second-color);
 }
